@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            VIDEOS
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <section>
+        <ion-button size='small' color="primary" href="/newvideo">ADD VIDEO</ion-button>
+    </section>
+    <ion-card *ngFor="let video of videos">
+        <img src="../assets/images/madison.jpg" />
+        <ion-card-header>
+            <ion-card-subtitle>VIDEO</ion-card-subtitle>
+            <ion-card-title>{{video.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <a href="{{video.file}}">WATCH</a>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

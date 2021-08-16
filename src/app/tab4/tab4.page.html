@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            AUDIOS
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <section>
+        <ion-button size='small' color="primary" href="/newlink">ADD LINK</ion-button>
+    </section>
+    <ion-list>
+
+        <ion-item *ngFor="let link of links">
+            <ion-avatar slot="start">
+                <img src="../assets/images/link.svg">
+            </ion-avatar>
+            <ion-label>
+                <h2>{{link.title}}</h2>
+                <a href="{{link.link}}">{{link.link}}</a>
+                <!--<p>Listen, I've had a pretty messed up day...</p> -->
+            </ion-label>
+        </ion-item>
+
+
+    </ion-list>
+</ion-content>

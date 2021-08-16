@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            BOOKS
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <section>
+        <ion-button size='small' color="primary" href="/newbook">ADD BOOK</ion-button>
+    </section>
+    <hr>
+    <ion-list>
+        <ion-item *ngFor="let book of books">
+            <ion-avatar slot="start">
+                <img [src]="book.image">
+            </ion-avatar>
+            <ion-label>
+                <h2 class="upper">{{book.title}}</h2>
+                <span>BY</span>
+                <h3 class="upper">{{book.author}}</h3>
+                <p>{{book.description}}</p>
+                <a href="{{book.file}}">READ</a>
+                <!-- <ion-button size="small" color="secondary">READ</ion-button> -->
+            </ion-label>
+
+        </ion-item>
+
+    </ion-list>
+
+
+</ion-content>

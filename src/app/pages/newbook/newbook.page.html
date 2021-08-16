@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>ADD NEW BOOK</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+
+        <ion-item lines="full">
+            <ion-label position="floating">TITLE</ion-label>
+            <ion-input formControlName="title" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">DESCRIPTION</ion-label>
+            <ion-textarea formControlName="description" required></ion-textarea>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">AUTHOR</ion-label>
+            <ion-input formControlName="author" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">COVER IMAGE</ion-label>
+            <br>
+            <ion-input type="file" formControlName="image" (change)='onImageChange($event)'>
+            </ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">FILE(PDF)</ion-label>
+            <br>
+            <ion-input type="file" formControlName="file" (change)='onFileChange($event)'>
+            </ion-input>
+        </ion-item>
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
