@@ -7,6 +7,11 @@
 </ion-header>
 
 <ion-content fullscreen>
+    <p style="text-align: center;">
+        Hello,<br> {{fname}} {{lname}}
+        <br>
+        <a (click)='logout()'>Logout</a>
+    </p>
     <section>
         <ion-button size='small' color="primary" href="/newvideo">ADD VIDEO</ion-button>
     </section>
@@ -18,6 +23,7 @@
         </ion-card-header>
         <ion-card-content>
             <a href="{{video.file}}">WATCH</a>
+            <a style="float: right; color: red;" (click)='delete(video.id)'>DELETE</a>
         </ion-card-content>
     </ion-card>
 </ion-content>

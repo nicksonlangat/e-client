@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
+  fname:any;
+  lname:any;
+  token=localStorage.getItem('myToken')
+  constructor(private router:Router) {
+    if (this.token==null){
+      this.router.navigate(['/login'])
+    }
+    this.fname=localStorage.getItem('user_first')
+    this.lname=localStorage.getItem('user_last')
+  }
 
 }

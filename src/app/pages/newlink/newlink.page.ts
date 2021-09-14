@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,10 +28,18 @@ export class NewlinkPage implements OnInit {
 
      
     submit(){
-      this.http.post('http://localhost:8000/links/', this.myForm.value)
+      const auth_token = localStorage.getItem('myToken')
+      var reqHeader = new HttpHeaders({ 
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${auth_token}` 
+     });
+      this.http.post('http://206.81.26.98/links/', this.myForm.value, {headers: reqHeader })
         .subscribe(res => {
           console.log(res);
           this.router.navigate(['/tabs/tab4'])
         })
+    }
+    goHome(){
+      this.router.navigate(['/'])
     }
 }

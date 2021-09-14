@@ -1,0 +1,32 @@
+<br><br><br><br><br><br><br><br><br>
+<ion-content>
+    <form [formGroup]="form" (submit)="submit()">
+        <ion-grid>
+            <ion-row justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div text-center>
+                        <h3>Login</h3>
+                    </div>
+                    <div padding>
+                        <ion-item>
+                            <ion-input name="email" type="email" placeholder="your@email.com" formControlName='email' required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input name="password" type="password" placeholder="Password" formControlName='password' required></ion-input>
+                        </ion-item>
+
+                    </div>
+                    <div padding>
+                        <ion-button size="large" type="submit" expand="block">Login</ion-button>
+                    </div>
+                    <div>
+
+                        <br>
+                        <a href="/register">Don't have an account? Register</a>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

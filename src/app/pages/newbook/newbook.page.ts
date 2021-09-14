@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -49,6 +49,11 @@ export class NewbookPage implements OnInit {
     }
        
     submit(){
+      const auth_token = localStorage.getItem('myToken')
+      var reqHeader = new HttpHeaders({ 
+        // 'Content-Type': 'application/json',
+        'Authorization': `Token ${auth_token}` 
+     });
       const formData = new FormData();
       formData.append('file', this.myForm.get('fileSource').value);
       formData.append('image', this.myForm.get('imageSource').value);
@@ -56,12 +61,16 @@ export class NewbookPage implements OnInit {
       formData.append('author', this.myForm.get('author').value);
       formData.append('description', this.myForm.get('description').value);
       console.log(formData)
-      this.http.post('http://localhost:8000/books/', formData)
+      this.http.post('http://206.81.26.98/books/', formData, {headers: reqHeader })
         .subscribe(res => {
           console.log(res);
           // alert('Uploaded Successfully.');
           this.router.navigate(['/tabs/tab1'])
         })
+    }
+
+    goHome(){
+      this.router.navigate(['/'])
     }
  
 }

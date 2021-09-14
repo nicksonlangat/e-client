@@ -7,6 +7,11 @@
 </ion-header>
 
 <ion-content fullscreen>
+    <p style="text-align: center;">
+        Hello,<br> {{fname}} {{lname}}
+        <br>
+        <a (click)='logout()'>Logout</a>
+    </p>
     <section>
         <ion-button size='small' color="primary" href="/newbook">ADD BOOK</ion-button>
     </section>
@@ -22,6 +27,7 @@
                 <h3 class="upper">{{book.author}}</h3>
                 <p>{{book.description}}</p>
                 <a href="{{book.file}}">READ</a>
+                <a style="float: right; color: red;" (click)='delete(book.id)'>DELETE</a>
                 <!-- <ion-button size="small" color="secondary">READ</ion-button> -->
             </ion-label>
 

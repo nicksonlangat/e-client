@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -40,13 +40,23 @@ export class NewvideoPage implements OnInit {
       }
     }
     submit(){
+      const auth_token = localStorage.getItem('myToken')
+      var reqHeader = new HttpHeaders({ 
+        // 'Content-Type': 'application/json',
+        'Authorization': `Token ${auth_token}` 
+     });
       const formData = new FormData();
       formData.append('file', this.myForm.get('fileSource').value);
       formData.append('title', this.myForm.get('title').value);
-      this.http.post('http://localhost:8000/videos/', formData)
+      console.log(formData)
+      this.http.post('http://206.81.26.98/videos/', formData, {headers: reqHeader })
         .subscribe(res => {
           console.log(res);
           this.router.navigate(['/tabs/tab3'])
         })
+    }
+
+    goHome(){
+      this.router.navigate(['/'])
     }
 }

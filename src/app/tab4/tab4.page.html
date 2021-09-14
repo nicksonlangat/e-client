@@ -7,6 +7,11 @@
 </ion-header>
 
 <ion-content fullscreen>
+    <p style="text-align: center;">
+        Hello,<br> {{fname}} {{lname}}
+        <br>
+        <a (click)='logout()'>Logout</a>
+    </p>
     <section>
         <ion-button size='small' color="primary" href="/newlink">ADD LINK</ion-button>
     </section>
@@ -19,6 +24,7 @@
             <ion-label>
                 <h2>{{link.title}}</h2>
                 <a href="{{link.link}}">{{link.link}}</a>
+                <a style="float: right; color: red;" (click)='delete(link.id)'>DELETE</a>
                 <!--<p>Listen, I've had a pretty messed up day...</p> -->
             </ion-label>
         </ion-item>

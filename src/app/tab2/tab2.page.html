@@ -7,6 +7,11 @@
 </ion-header>
 
 <ion-content fullscreen>
+    <p style="text-align: center;">
+        Hello,<br> {{fname}} {{lname}}
+        <br>
+        <a (click)='logout()'>Logout</a>
+    </p>
     <section>
         <ion-button size='small' color="primary" href="/newaudio">ADD AUDIO</ion-button>
     </section>
@@ -19,6 +24,7 @@
             <ion-label>
                 <h2>{{audio.title}}</h2>
                 <a href="{{audio.file}}">LISTEN</a>
+                <a style="float: right; color: red;" (click)='delete(audio.id)'>DELETE</a>
             </ion-label>
         </ion-item>
 
